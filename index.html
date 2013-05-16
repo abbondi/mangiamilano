@@ -8,10 +8,6 @@
 <link rel="stylesheet" href="js/jquery.mobile-1.0a2.min.css" />
 <link rel="stylesheet" href="3dflow/idangerous.swiper.css">
 <link rel="stylesheet" href="3dflow/idangerous.swiper.3dflow.css">
-<style>.appstore.swiper-container{padding:30px 0;}.appstore.swiper-container,.appstore .swiper-slide{width:auto;height:161px;}.appstore .swiper-slide{background-size:cover;background-repeat:no-repeat;background-position:center;border-radius:5px;border-bottom:1px solid #555;
-}.real-reflection{-webkit-box-reflect:below 1px -webkit-linear-gradient(bottom,rgba(0,0,0,0.5) 0px,rgba(0,0,0,0) 20px);}.appstore .reflection{width:100%;height:15px;border-radius:3px 3px 0 0;position:absolute;left:0;bottom:-17px;background-image:-webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,0.3)),to(rgba(0,0,0,0)));background-image:-webkit-linear-gradient(top,rgba(0,0,0,0.3),rgba(0,0,0,0));background-image:-moz-linear-gradient(top,rgba(0,0,0,0.3),rgba(0,0,0,0));background-image:-o-linear-gradient(top,rgba(0,0,0,0.3),rgba(0,0,0,0));background-image:linear-gradient(to bottom,rgba(0,0,0,0.3),rgba(0,0,0,0));
-}.appstore .swiper-slide a{position:absolute;left:0;top:0;width:100%;height:100%;z-index:1}.anyhtml.swiper-container{padding:30px 0;}.anyhtml.swiper-container,.anyhtml .swiper-slide{width:auto;height:161px;}.anyhtml .swiper-slide{background:#eee;text-align:center;font-size:25px;color:#222;line-height:161px;font-weight:bold;}.td7.swiper-container,.td7 .swiper-slide,.td72.swiper-container,.td72 .swiper-slide{width:auto;height:100%;}.td8.swiper-container,.td8 .swiper-slide{width:auto;height:210px;}.td8.swiper-container{padding:0;}.td8 .swiper-slide{background:#fff;line-height:70px;font-size:18px;}.swiper-scrollbar{width:100%;height:8px;margin:20px 0;}
-</style>
 <script src="js/jquery-1.4.4.min.js"></script>
 <script src="js/jquery.mobile-1.0a2.min.js"></script>
 <script src="js/phonegap.js"></script>
@@ -162,7 +158,8 @@ $(function () {
 	});
 	
 	
-	$('#indicazioni').click(function () {	
+	$('#indicazioni').click(function () {
+		
 		$('#gMap').toggle();
 		$('#displayDirections').toggle();
 		if ($('#displayDirections').css('display')=='none') {
@@ -188,25 +185,17 @@ $(function () {
 });
 
 
+function mostraIndicazioni() {
+	//alert("indicazioni");
+	$('#gMap').toggle();
+		$('#displayDirections').toggle();
+		if ($('#displayDirections').css('display')=='none') {
+			$('#indicazioni h5').html('&raquo;&nbsp;INDICAZIONI STRADALI');	
+		} else {
+			$('#indicazioni h5').html('&laquo;&nbsp;MAPPA');
+		}	
+}
 
-
-/* 3D Flow demos */
-$(function(){
-	
-	
-	
-	
-	//1 Slides Per Slide
-	$('.td7').swiper({
-		slidesPerSlide:1,
-		loop:true,
-		//Enable 3D Flow
-		tdFlow: {}
-	})
-
-
-	
-})
 
 
 
@@ -220,10 +209,10 @@ function gallery() {
 </head>
 <body>
 	<div data-role="page" id="home" data-theme="a">
-        <div data-role="header" data-position="fixed" style="height:100px;border-bottom:3px solid #333;">
+        <div data-role="header" style="position:fixed;height:100px;border-bottom:3px solid #333;z-index:99;">
         	<h1><img src="img/logo.png" style="height:80px;"></h1>
         </div>
-        <div data-role="content">
+        <div data-role="content" style="position:relative;top:103px;">
         	<!--div class="logo"><img src="img/logo.png"></div-->
         	<ul data-role="listview" data-inset="false">
                 <li>
@@ -255,7 +244,7 @@ function gallery() {
                         <span class="evento-quando">Tutti i giorni</span>
                     </a>
                 </li>  
-<li>
+				<li>
                 	<a href="#pag1">
                     	<img src="dati/img/001.jpg" width="140" height="80">
                         <span class="evento-titolo">Milano da assaggiare</span><br>
@@ -290,7 +279,7 @@ function gallery() {
                        
         	</ul>
     	</div>
-		<div data-role="footer" data-position="fixed" style="padding:0;height:20px;background:#665a58">
+		<div data-role="footer" style="position:fixed;bottom:0;padding:0;height:20px;background:#665a58">
     		<div id="indicazioni" style="text-align:center;"><h5>&nbsp;</h5></div>
     	</div>        
 
@@ -298,10 +287,10 @@ function gallery() {
 
 
     <div data-role="page" id="pag1" data-theme="a">
-        <div data-role="header" data-position="fixed">
+        <div data-role="header" style="position:fixed;border-bottom:3px solid #333;z-index:99;">
         	<h1>Milano<br>da assaggiare</h1>
         </div>
-        <div data-role="content">
+        <div data-role="content" style="position:relative;top:63px;">
         	<div class="addr">
             	<div class="thumbnail" style="width:33%;padding:0 0 5px 0;text-align:center;font-size:12px;border:2px #ddd solid;background:#ddd;"><a href="http://www.zinilombardia2013.it/apps/mangiamilano/gallery.html" style="text-decoration:none;color:#000;"><img src="dati/img/a001.jpg" width="100%">GALLERY</a></div>
                 
@@ -338,7 +327,7 @@ document.body.insertAdjacentHTML(
 
 document.head.insertAdjacentHTML( 'beforeEnd',
     '<style>'
-    + 'body { margin-top: 40px !important; }'
+    + 'body { margin-top: 0px !important; }'
     + '</style>'
     );
       
@@ -359,7 +348,7 @@ document.head.insertAdjacentHTML( 'beforeEnd',
             <div id="displayDirections" style="position:relative;height:300px;display:none;overflow:auto;"></div>
     	</div>
     	<div data-role="footer" data-position="fixed">
-    		<div id="indicazioni" style="text-align:center;cursor:pointer;"><h5>&raquo;&nbsp;INDICAZIONI STRADALI</h5></div>
+    		<div id="indicazioni" style="text-align:center;cursor:pointer;" onClick="javascript:mostraIndicazioni();"><h5>&raquo;&nbsp;INDICAZIONI STRADALI</h5></div>
     	</div>
     </div>
     
