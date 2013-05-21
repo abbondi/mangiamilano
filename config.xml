@@ -5,10 +5,10 @@ id = "it.abbondi.mangiamilano"
 version = "1.0.0"
 versionCode = "1">
 
-    <name>MangiaMilano</name>
+    <name>Where in Milano</name>
 
     <description>
-        Applicazione MangiaMilano
+        Applicazione Where in Milano
     </description>
 
     <author href="http://www.massimoabbondi.it" email="magenta@massimoabbondi.it">
